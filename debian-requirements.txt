@@ -1,14 +1,6 @@
 # Misc.
-biber
-build-essential
-curl
 git
 gosu
-gnupg2
-graphviz
 make
-pandoc
 sudo
 vim
-wget
-xzdec
