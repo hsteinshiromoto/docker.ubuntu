@@ -62,7 +62,7 @@ WORKDIR /home/$USERNAME
 # N.B.: Keep the order 1. entrypoint, 2. cmd
 USER $USERNAME
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 EXPOSE 8888
-CMD ["-f","/dev/null"]
+CMD ["tail", "-f","/dev/null"]
