@@ -88,10 +88,19 @@ kill_container() {
     docker kill ${CONTAINER_ID}
 }
 
+debug() {
+    docker logs $(docker run -d docker.ubuntu) --details
+}
+
 # Available options
 while :
 do
     case "$1" in
+        -d | --debug)
+            debug
+            exit 0
+            ;;
+
         -e | --enter_container)
             enter_container
             exit 0
