@@ -1,5 +1,5 @@
 # ---
-# Arguments
+# Variables
 # ---
 
 # Files to be copied in build phase of the container
@@ -11,12 +11,8 @@ ifndef DOCKER_PARENT_IMAGE
 DOCKER_PARENT_IMAGE="ubuntu:latest"
 endif
 
-# ---
-# Global Variables
-# ---
-
 ifndef DOCKER_IMAGE_NAME
-DOCKER_IMAGE_NAME=docker.ubuntu
+DOCKER_IMAGE_NAME=$(shell basename $(CURDIR))
 endif
 
 BUILD_DATE = $(shell date +%Y%m%d-%H:%M:%S)
@@ -33,19 +29,8 @@ build:
 	docker build --build-arg BUILD_DATE=${BUILD_DATE} -t ${DOCKER_IMAGE_TAG} .
 	@echo "Done"
 
-push:
-	$(eval DOCKER_IMAGE_TAG=${DOCKER_IMAGE_NAME}:${DOCKER_TAG})
-
-	@echo "Pushing docker image ${DOCKER_IMAGE_TAG} to docker.pkg.github.com/hsteinshiromoto"
-	docker push ${DOCKER_IMAGE_TAG}
-	@echo "Done"
-
-
-#################################################################################
-# PROJECT RULES                                                                 #
-#################################################################################
-
-
+test:
+	@echo ${DOCKER_IMAGE_NAME}
 
 #################################################################################
 # Self Documenting Commands                                                     #

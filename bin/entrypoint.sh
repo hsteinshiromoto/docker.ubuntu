@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # References
 # [1] https://www.cyberciti.biz/faq/linux-change-user-group-uid-gid-for-all-owned-files/
