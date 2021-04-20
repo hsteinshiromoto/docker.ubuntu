@@ -29,9 +29,6 @@ build:
 	docker build --build-arg BUILD_DATE=${BUILD_DATE} -t ${DOCKER_IMAGE_TAG} .
 	@echo "Done"
 
-test:
-	@echo ${DOCKER_IMAGE_NAME}
-
 #################################################################################
 # Self Documenting Commands                                                     #
 #################################################################################
